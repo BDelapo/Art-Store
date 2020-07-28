@@ -1,26 +1,30 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Navbar from './Components/Navbar';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import cactus from './Cactus.png'
+import { ProductProvider } from './Context/ProductContext'
 import ProductList from './Components/ProductList';
-import Cart from './Components/Cart';
-import Details from './Components/Details';
-import Default from './Components/Default';
-
-
+import Cart from './Components/Cart'
 
 function App() {
   return (
-    <React.Fragment>
-      <Navbar />
-      <Switch>
-        <Route exact path='/' component={ProductList}></Route>
-        <Route path='/details' component={Details}></Route>
-        <Route path='/cart' component={Cart}></Route>
-        <Route component={Default}></Route>
-      </Switch>
-    </React.Fragment>
+    <ProductProvider>
+      <Router>
+            <div className='ui top fixed menu'>
+                <Link to='/'>
+                    <div className='item'>
+                        <img src={cactus} />
+                    </div>
+                </Link>
+                <div className='right menu'>    
+                    <Link to='/cart' className='item'>cart</Link>
+                </div>
+            </div>
+            <Switch>
+                <Route exact path='/' component={ProductList} />
+                <Route path='/cart' component={Cart} />
+            </Switch>
+        </Router>
+    </ProductProvider>
   );
 }
 

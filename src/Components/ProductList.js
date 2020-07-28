@@ -1,27 +1,28 @@
-import React, { Component } from 'react'
-import Product from './Product'
-import Title from './Title'
-import { ProductConsumer } from '../context'
+import React, { useContext } from 'react';
+import Data from '../Data.json'
+import ProductItem from './ProductItem';
+import './ProductList.css'
+import { ProductContext } from '../Context/ProductContext'
 
-export default class ProductList extends Component{
-    render(){
-        return(
-            <React.Fragment>
-                <div className='py-5'>
-                    <div className='container'>
-                    <Title name='our' title='products'/>
-                        <div className='row'>
-                            <ProductConsumer>
-                                {value => {
-                                    return value.products.map( product => {
-                                        return <Product key={product.id} product={product}/>
-                                    })
-                                }}
-                            </ProductConsumer>
-                        </div>
-                    </div>
-                </div>
-            </React.Fragment>
+const ProductList = () => {
+
+    const [products, setProducts] = useContext(ProductContext)
+
+    const list = products.map(item =>{
+        return (
+            <div>
+                <ProductItem ProductImg={item.Product} ProductName={item.first_name} ID={item.id}/>
+            </div>
         )
-    }
+    })
+
+    return (
+        <div className='ui container product-list'>
+            <div className='ui centered grid'>
+                {list}
+            </div>
+        </div>
+     );
 }
+ 
+export default ProductList

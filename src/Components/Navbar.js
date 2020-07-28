@@ -1,46 +1,31 @@
-import React, { Component } from 'react'
-import {Link} from 'react-router-dom';
-import CactusIcon from '../Cactus Icon.png'
-import { ButtonContainer } from './Button'
-import styled from 'styled-components'
+import React from 'react';
+import cactus from '../Cactus.png'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import Cart from './Cart'
+import App from '../App'
 
 
-export default class Navbar extends Component{
-    render(){
-        return(
-            <NavWrapper className='navbar navbar-expand-sm navbar-dark px-sm-5 bg-primary'>
-                {/*https://www.iconfinder.com/haneka*/}
+const Navbar = () => {
+    return ( 
+        <Router>
+            <div className='ui top fixed menu'>
                 <Link to='/'>
-                    <img src={CactusIcon}  alt="Icon" className="navbar-brand"/>
+                    <div className='item'>
+                        <img src={cactus} />
+                    </div>
                 </Link>
-                <ul className="navbar-nav align-items-center">
-                    <li className="nav-item ml-5">
-                        <Link to="/" className="nav-link">
-                            products
-                        </Link>
-                    </li>
-                </ul>
-                <Link to="/cart" className="ml-auto">
-                    <ButtonContainer>
-                        <span className="mr-2">
-                        <i className="fas fa-cart-plus" />
-                        </span>
-                        my cart
-                    </ButtonContainer>
-                </Link>
-            </NavWrapper>
-        )
-    }
+                <div className='right menu'>    
+                    <Link to='/cart' className='item'>cart</Link>
+                </div>
+            <Switch>
+                <Route path='/'>
+                </Route>
+                <Route path='/cart' component={Cart}>
+                </Route>
+            </Switch>
+            </div>
+        </Router>
+    );
 }
-
-const NavWrapper = styled.nav` 
-    background: var(--mainBlue)!important;
-    .nav-link{
-        color:var(--mainWhite) !important;
-        font-size: 1.3rem;
-        text-transform: capitalize;
-    }
-`
-
-
-
+ 
+export default Navbar;

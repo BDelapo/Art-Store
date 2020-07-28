@@ -1,11 +1,19 @@
-import React, { Component } from 'react'
+import React, { useContext } from 'react';
+import { ProductContext } from '../Context/ProductContext'
 
-export default class Cart extends Component{
-    render(){
-        return(
-            <div>
-              <h3>Hello from Cart</h3>  
+const Cart = () => {
+
+    const [products, setProducts] = useContext(ProductContext)
+
+    return ( 
+        <div>
+            <div className='ui container product-list'>
+            <div className='ui centered grid'>
+                Cart
             </div>
-        )
-    }
+        </div>
+        </div>
+     )
 }
+ 
+export default Cart;
