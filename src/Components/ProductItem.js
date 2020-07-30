@@ -1,18 +1,23 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import ProductPage from './ProductPage';
 
 
-const ProductItem = ({ProductImg, ID, ProductName}) => {
+const ProductItem = ({ProductImg, id, ProductName, handleProduct}) => {
+    
     return ( 
-        <div className='eight wide column'>
-            <div className='product-item ui card'>
-                <div className='image'>
-                    <img src={ProductImg} alt='hello' />
-                </div>
-                <div className='content'>
-                    <a className='header'>{ProductName}</a>
+        <Link to={`/product/${id}`} onClick={() => handleProduct(id)}>
+            <div className='eight wide column'>
+                <div className='product-item ui card'>
+                    <div className='image'>
+                        <img src={ProductImg} alt='hello' />
+                    </div>
+                    <div className='content'>
+                        <a className='header'>{ProductName}</a>
+                    </div>
                 </div>
             </div>
-        </div>
+        </Link>
      );
 }
  

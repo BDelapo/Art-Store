@@ -8,10 +8,10 @@ const Cart = () => {
     return ( 
         <div>
             <div className='ui container product-list'>
-            <div className='ui centered grid'>
-                Cart
+                <div className='ui centered grid'>
+                    Cart
+                </div>
             </div>
-        </div>
         </div>
      )
 }
