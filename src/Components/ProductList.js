@@ -1,13 +1,14 @@
 import React, { useContext } from 'react'
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import ProductItem from './ProductItem';
 import './ProductList.css'
 import { ProductContext } from '../Context/ProductContext'
-import ProductPage from './ProductPage';
+import ProductItem from './ProductItem';
+
 
 const ProductList = () => {
 
-    const [products, setProducts, productInfo, setProductInfo, handleProduct] = useContext(ProductContext)
+    const [products,,,,,, handleProduct] = useContext(ProductContext)
+
+    console.log(products)
 
     const list = products.map(item =>{
         return (

@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import './ProductPage.css'
 import { ProductContext } from '../Context/ProductContext'
+import AddToCart from './AddToCart'
 
 const ProductPage = () => {
 
-    const [products, setProducts, productInfo, setProductInfo, handleProduct] = useContext(ProductContext)
-    console.log(productInfo.Product)
+    const [,, productInfo,,,,, addToCart] = useContext(ProductContext)
+
     return (
         <div>
             <div className='ui container product-list'>
@@ -20,8 +21,7 @@ const ProductPage = () => {
                                 <div className='ui segment'>
                                     <h3 className="ui center aligned header">{productInfo.first_name}</h3>
                                     <div className="description">
-                                    <p></p>
-                                    <p></p>
+                                        <AddToCart addToCart={addToCart} product={productInfo}/>
                                     </div>
                                 </div>
                               </div>
