@@ -5,6 +5,7 @@ import { ProductProvider } from './Context/ProductContext'
 import ProductList from './Components/ProductList';
 import Cart from './Components/Cart'
 import ProductPage from './Components/ProductPage'
+import Checkout from './Components/Checkout';
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
                 </Link>
                 <div className='right menu'>    
                     <Link to='/cart' className='item'>
-                      <i class="cart arrow down icon"></i>
+                      <i className="cart arrow down icon"></i>
                     </Link>
                 </div>
             </div>
@@ -26,6 +27,7 @@ function App() {
                 <Route exact path='/' component={ProductList} />
                 <Route path='/cart' component={Cart} />
                 <Route path={`/product`} component={ProductPage}/>
+                <Route path='/checkout' component={Checkout} />
             </Switch>
         </Router>
     </ProductProvider>

@@ -6,6 +6,8 @@ import ProductItem from './ProductItem';
 
 const ProductList = () => {
 
+
+    //TODO: figure out a way to make this simpler
     const [products,,,,,, handleProduct] = useContext(ProductContext)
 
     console.log(products)

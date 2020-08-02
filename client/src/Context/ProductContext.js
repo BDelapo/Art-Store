@@ -5,9 +5,16 @@ export const ProductContext = createContext()
 
 export const ProductProvider = props => {
    
+    //Product List
     const [products, setProducts] = useState(data)
+
+    //Product Page
     const [productInfo, setProductInfo] = useState({})
+
+    //items in cart
     const [cartItems, setCartItems] = useState([])
+
+    //functions for product page
 
     const getProduct = (id) =>{
         const product = products.find(product => product.id===id)
@@ -19,11 +26,21 @@ export const ProductProvider = props => {
         setProductInfo(product)
     }
 
+    //functions for cart
+
     const addToCart = (product) =>{
         const updatedCart = cartItems
         updatedCart.push(product)
         setCartItems(updatedCart)
-        console.log(cartItems)
+    }
+
+    const removeFromCart = (id) =>{
+        const updatedCart = cartItems
+        const removed = updatedCart.filter((product) => {
+            return product.id !== id
+        })
+       console.log(removed)
+       setCartItems(removed)
     }
    
     return (
@@ -35,7 +52,9 @@ export const ProductProvider = props => {
         cartItems,
         setCartItems, 
         handleProduct,
-        addToCart]}
+        addToCart,
+        removeFromCart
+        ]}
         >
             {props.children}
         </ProductContext.Provider>

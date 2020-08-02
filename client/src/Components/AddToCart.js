@@ -1,6 +1,6 @@
 import React from 'react'
 
-
+//TODO: Style button
 
 const AddToCart = ({addToCart, product}) => {
 
@@ -8,7 +8,7 @@ const AddToCart = ({addToCart, product}) => {
         <div className="ui vertical animated button" 
         tabIndex="0" 
         onClick={()=> addToCart(product)}>
-            <div className="hidden content">Shop</div>
+            <div className="hidden content">Add</div>
             <div className="visible content">
                 <i className="shop icon" />
             </div>

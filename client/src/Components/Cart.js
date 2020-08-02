@@ -1,6 +1,11 @@
 import React, { useContext } from 'react';
+import { Link } from 'react-router-dom'
+import './Cart.css'
 import { ProductContext } from '../Context/ProductContext'
 import CartItems from './CartItems';
+
+
+//TODO: Style cart, link to checkout, display total price
 
 const Cart = () => {
 
@@ -13,11 +18,11 @@ const Cart = () => {
 
     return ( 
         <div>
-            <div className='ui container product-list'>
+            <div className='ui container cart-container'>
                 <div className='ui centered grid'>
                     <div className='twelve wide column'>
                         <div className='ui segment'>
-                            <table class="ui selectable celled table">
+                            <table className="ui selectable celled table">
                                 <thead>
                                     <tr>
                                      <th>Name</th>
@@ -29,6 +34,9 @@ const Cart = () => {
                                     {cartList}
                                 </tbody>
                             </table>
+                            <Link to='/checkout'>
+                            <button className="ui button"> Checkout </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
