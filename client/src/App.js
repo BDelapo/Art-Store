@@ -1,17 +1,19 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import cactus from './Cactus.png'
+import './App.css'
 import { ProductProvider } from './Context/ProductContext'
-import ProductList from './Components/ProductList';
-import Cart from './Components/Cart'
-import ProductPage from './Components/ProductPage'
-import Checkout from './Components/Checkout';
+import ProductList from './Components/Pages/Front-Page/ProductList';
+import Cart from './Components/Pages/Cart/Cart'
+import ProductPage from './Components/Pages/Product-Pages/ProductPage'
+import Checkout from './Components/Pages/Checkout/Checkout';
 
 function App() {
   return (
+    <div className='bg'>
     <ProductProvider>
       <Router>
-            <div className='ui top fixed menu'>
+            <div className='ui top fixed menu nav'>
                 <Link to='/'>
                     <div className='item'>
                         <img src={cactus} />
@@ -31,6 +33,7 @@ function App() {
             </Switch>
         </Router>
     </ProductProvider>
+    </div>
   );
 }
 

@@ -1,9 +1,10 @@
 import React from 'react';
+import './Checkout.css'
 
 const Confirmation = () => {
     return ( 
         <div>
-            Confirm
+           
         </div>
      );
 }

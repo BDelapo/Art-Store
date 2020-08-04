@@ -1,23 +1,49 @@
 import React from 'react';
-import './Checkout.css'
 
-const Checkout = () => {
+const Steps = ({stepIndex}) => {
+
+    const shipping = (index) =>{
+        if(index === 0){
+            return 'active step'
+        }
+        else return 'completed step'
+    }
+
+    const billing = (index) =>{
+        if(index === 1){
+            return 'active step'
+        }
+        else if(index < 1){
+            return 'incompleted step'
+        }
+        else return 'completed step'
+    }
+
+    const confirmation = (index) =>{
+        if(index === 2){
+            return 'active step'
+        }
+        else if(index < 2){
+            return 'incompleted step'
+        }
+    }
+
     return ( 
-        <div className='ui container checkout-container'>
+         <div className='ui container checkout-container'>
             <div className="ui ordered steps">
-                <div className="completed step">
+                <div className={shipping(stepIndex)}>
                     <div className="content">
                         <div className="title">Shipping</div>
                         <div className="description">Choose your shipping options</div>
                     </div>
                 </div>
-                <div className="completed step">
+                <div className={billing(stepIndex)}>
                     <div className="content">
                         <div className="title">Billing</div>
                         <div className="description">Enter billing information</div>
                     </div>
                 </div>
-                <div className="active step">
+                <div className={confirmation(stepIndex)}>
                     <div className="content">
                         <div className="title">Confirm Order</div>
                         <div className="description">Verify order details</div>
@@ -28,4 +54,4 @@ const Checkout = () => {
      );
 }
  
-export default Checkout;
+export default Steps;

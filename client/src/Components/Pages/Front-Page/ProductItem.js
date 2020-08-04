@@ -1,23 +1,24 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import ProductPage from './ProductPage';
+import { Link } from "react-router-dom";
+import './ProductList.css'
 
 
 const ProductItem = ({ProductImg, id, ProductName, handleProduct}) => {
     
     return ( 
-        <Link to={`/product/${id}`} onClick={() => handleProduct(id)}>
-            <div className='eight wide column'>
-                <div className='product-item ui card'>
+            <div className='twelve wide mobile eight wide tablet four wide computer column'
+            style={{ marginTop: '2rem'}}>
+                <Link to={`/product/${id}`} onClick={() => handleProduct(id)}>
+                <div className='ui card centered'>
                     <div className='image'>
                         <img src={ProductImg} alt='hello' />
                     </div>
-                    <div className='content'>
+                    <div className='content product-item'>
                         <a className='header'>{ProductName}</a>
                     </div>
                 </div>
+                </Link>
             </div>
-        </Link>
      );
 }
  

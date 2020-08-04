@@ -1,5 +1,5 @@
 import React from 'react';
-import RemoveFromCart from './RemoveFromCart';
+import RemoveFromCart from '../../Buttons/RemoveFromCart';
 
 
 //TODO: Add functionality (remove/add items from cart, display price)

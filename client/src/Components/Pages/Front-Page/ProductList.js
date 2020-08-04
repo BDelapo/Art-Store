@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import './ProductList.css'
-import { ProductContext } from '../Context/ProductContext'
+import { ProductContext } from '../../../Context/ProductContext'
 import ProductItem from './ProductItem';
 
 
@@ -14,12 +14,18 @@ const ProductList = () => {
 
     const list = products.map(item =>{
         return (
-                <ProductItem ProductImg={item.Product} ProductName={item.first_name} id={item.id} key={item.id} handleProduct={handleProduct}/>
+                <ProductItem 
+                className=''
+                ProductImg={item.Product} 
+                ProductName={item.first_name} 
+                id={item.id} 
+                key={item.id} 
+                handleProduct={handleProduct}/>
         )
     })
 
     return (
-        <div className='ui container product-list'>
+        <div className='ui fluid container product-list-container'>
             <div className='ui centered grid'>
                 {list}
             </div>
