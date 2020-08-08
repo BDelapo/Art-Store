@@ -25,11 +25,11 @@ const ProductList = () => {
     })
 
     return (
-        <div className='ui fluid container product-list-container'>
+        
             <div className='ui centered grid'>
                 {list}
             </div>
-        </div>
+        
      );
 }
  

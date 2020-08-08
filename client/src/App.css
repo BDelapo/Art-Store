@@ -1,8 +1,23 @@
 body{
-    /* background-image: url('./annie-spratt-6i7lmEaryeU-unsplash.jpg'); */
-   
+ 
 }
 
-.nav{
-    background-color: #E4AD38;
+.navi{
+    background-color: #59253A !important;
+    border-bottom-style: hidden !important;
+    border-bottom-width: .2rem !important;
+    border-bottom-color:  #895062 !important;
+    
+    
+}
+
+.navi-logo{
+    background-color: #895062 !important;
+    height: 100%
+}
+
+.navi-icon{
+    color: wheat !important;
+    font-size: 2em !important;
+    margin-left: -.3em !important;
 }

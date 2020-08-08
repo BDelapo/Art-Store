@@ -9,7 +9,7 @@ const ProductPage = () => {
 
     return (
         <div className='ui container product-info-placement'>
-            <div className='ui grid'>
+            <div className='ui stackable grid'>
                 <div className='eight wide column'>
                     <div className='ui items'>
                         <div className='item'>

@@ -6,8 +6,8 @@ import './ProductList.css'
 const ProductItem = ({ProductImg, id, ProductName, handleProduct}) => {
     
     return ( 
-            <div className='twelve wide mobile eight wide tablet four wide computer column'
-            style={{ marginTop: '2rem'}}>
+            <div className='fourteen wide mobile eight wide tablet five wide computer column'
+            style={{ marginTop: '5rem'}}>
                 <Link to={`/product/${id}`} onClick={() => handleProduct(id)}>
                 <div className='ui card centered'>
                     <div className='image'>

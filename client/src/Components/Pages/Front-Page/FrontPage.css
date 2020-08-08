@@ -1,0 +1,33 @@
+.banner-container{
+    margin-bottom: 5rem;
+    margin-top: 4rem;
+    border-width: 6px;
+    position: relative !important;
+    /* border-top-style: solid !important;
+    border-bottom-style: solid !important;
+    border-top: #2d4159;
+    border-bottom: #0667a1;
+    border-bottom-width: 10px;
+    border-top-width: 10px; */
+    width: 100%;
+}
+
+.banner{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    left: 0; 
+    right: 0;
+    top: 0;
+    bottom: 0; 
+    text-align: center;
+}
+
+.slide-logo{
+    color: white;
+    font-size: 6vw;
+    font-family: Permanent Marker;
+    font-weight: lighter;
+}
