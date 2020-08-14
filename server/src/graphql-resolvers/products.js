@@ -5,12 +5,9 @@ const db = new Database().db
 
 var getAllProducts = {
     type: graphql.GraphQLList(Product),
-    args: {
-        name: { type: graphql.GraphQLString }
-    },
-    resolve: function(root, args, context, info){
+    resolve: function(root, context, info){
         return new Promise((resolve, reject) => {
-            db.all(`SELECT * FROM product';`, function(err, rows){
+            db.all(`SELECT * FROM Products ;`, function(err, rows){
                 if(err){
                      console.log('ERROR HAS OCCURED')
                      reject(err);
@@ -23,4 +20,25 @@ var getAllProducts = {
     }
 }
 
-module.exports = getAllProducts
+
+var getProduct = {
+    type: graphql.GraphQLList(Product),
+    args: {
+        name: { type: graphql.GraphQLString }
+    },
+    resolve: function(root, args, context, info){
+        return new Promise((resolve, reject) => {
+            db.all(`SELECT * FROM Products WHERE name = "${args.name}";`, function(err, rows){
+                if(err){
+                     console.log('ERROR HAS OCCURED')
+                     reject(err);
+                     }
+            console.log('SUCCESS HAS OCCURED')
+            resolve(rows);
+            });
+        }
+        )
+    }
+}
+
+module.exports = {getAllProducts, getProduct}

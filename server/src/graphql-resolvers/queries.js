@@ -1,10 +1,11 @@
 const graphql = require('graphql');
-const getAllProducts = require('./products')
+const {getAllProducts, getProduct} = require('./products')
 
 var queries = new graphql.GraphQLObjectType({
     name: 'Query',
     fields: {
-        getAllProducts
+        getAllProducts,
+        getProduct
     }
 })
 
