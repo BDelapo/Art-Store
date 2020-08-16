@@ -41,4 +41,23 @@ var getProduct = {
     }
 }
 
-module.exports = {getAllProducts, getProduct}
+var addProduct = {
+    type: Product,
+    args: {
+        name: { type: new graphql.GraphQLNonNull(graphql.GraphQLString) }
+    },
+    resolve: function(source, args){
+        return new Promise((resolve, reject) => {
+            db.run(`INSERT INTO Products(name) VALUES(?);`,
+            [args.name],
+            function(err, rows){
+                if(err){
+                    reject(err)
+                }
+                resolve(rows);
+            })
+        })
+    }
+}
+
+module.exports = {getAllProducts, getProduct, addProduct}

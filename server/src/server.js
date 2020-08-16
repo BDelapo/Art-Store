@@ -2,6 +2,7 @@ const express = require('express')
 const graphql = require('graphql');
 const { graphqlHTTP } = require('express-graphql')
 const queries = require('./graphql-resolvers/queries')
+const mutations = require('./graphql-resolvers/mutations')
 
 
 const app = express()
@@ -10,6 +11,7 @@ const port = 5000
 
 const schema = new graphql.GraphQLSchema({
     query: queries,
+    mutation : mutations
 
 });
 
