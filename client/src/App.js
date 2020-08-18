@@ -18,7 +18,7 @@ function App() {
           <div className='ui borderless top fixed large menu navi'>
             <Link to='/'>
               <div className='item navi-logo'>
-                <img src={lotus} />
+                <img src={lotus}  alt='Moth'/>
               </div>
             </Link>
             <div className='right menu'>

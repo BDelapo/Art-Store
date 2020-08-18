@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import './ProductPage.css'
 import { ProductContext } from '../../../Context/ProductContext'
-import AddToCart from '../../Buttons/AddToCart'
+import ProductDetails from './ProductDetails';
 
 const ProductPage = () => {
 
@@ -13,9 +13,9 @@ const ProductPage = () => {
                 <div className='eight wide column'>
                     <div className='ui items'>
                         <div className='item'>
-                            <div className='content product-info'>
+                            <div className='content'>
                                 <div className='ui segment'>
-                                    <img className='ui fluid image' src={productInfo.Product} />
+                                    <img className='ui fluid image' src={productInfo.product_image} />
                                 </div>
                             </div>
                         </div>
@@ -24,14 +24,7 @@ const ProductPage = () => {
                 <div className='eight wide column'>
                     <div className="ui items">
                         <div className="item">
-                            <div className="content product-info">
-                                <div className='ui segment'>
-                                    <h3 className="ui center aligned header">{productInfo.first_name}</h3>
-                                    <div className="description">
-                                        <AddToCart addToCart={addToCart} product={productInfo} />
-                                    </div>
-                                </div>
-                            </div>
+                            <ProductDetails productInfo={productInfo} addToCart={addToCart}/>
                         </div>
                     </div>
                 </div>
