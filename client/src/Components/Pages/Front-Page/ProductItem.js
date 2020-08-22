@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import './ProductList.css'
 
 
-const ProductItem = ({ProductImg, id, ProductName, handleProduct}) => {
+const ProductItem = ({ProductImg, ProductName, ProductPrice, ProductDescript, id, handleProduct}) => {
     
     return ( 
             <div className='fourteen wide mobile eight wide tablet five wide computer column'
@@ -14,7 +14,8 @@ const ProductItem = ({ProductImg, id, ProductName, handleProduct}) => {
                         <img src={ProductImg} alt='hello' />
                     </div>
                     <div className='content product-item'>
-                        <a className='header'>{ProductName}</a>
+                        <div className='header'>{ProductName}</div>
+                        <div>{ProductPrice}</div>
                     </div>
                 </div>
                 </Link>

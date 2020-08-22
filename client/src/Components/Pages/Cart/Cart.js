@@ -9,40 +9,49 @@ import CartItems from './CartItems';
 
 const Cart = () => {
 
-    const [products, setProducts,,,cartItems] = useContext(ProductContext)
-    
-    const cartList = cartItems.map(item => { 
-        return <CartItems ProductImg={item.Product} ProductName={item.first_name} id={item.id} key={item.id}/> 
-    })
-    
+    const [products, setProducts, , , cartItems] = useContext(ProductContext)
 
-    return ( 
+    const cartList = cartItems.map(item => {
+        return <CartItems ProductImg={item.product_image} ProductName={item.product_title} ProductPrice={item.price} id={item.id} key={item.id} />
+    })
+
+    const totalPrice = () => {
+        if (cartList.length !== 0) {
+            return cartItems.map(item => item.price).reduce((itemPrice, totalPrice) => itemPrice + totalPrice)
+        }
+    }
+
+
+    console.log(totalPrice())
+
+
+    return (
         <div>
             <div className='ui container cart-container'>
-                <div className='ui centered grid'>
+                <div className='ui stackable centered grid'>
                     <div className='twelve wide column'>
                         <div className='ui segment'>
                             <table className="ui selectable celled table">
                                 <thead>
-                                    <tr>
-                                     <th>Name</th>
-                                     <th>Status</th>
-                                     <th>Notes</th>
-                                    </tr>
                                 </thead>
                                 <tbody>
                                     {cartList}
                                 </tbody>
                             </table>
+                        </div>
+                    </div>
+                    <div className='four wide column'>
+                        <div className='ui segment'>
+                            <h4> Total: {totalPrice()}</h4>
                             <Link to='/checkout'>
-                            <button className="ui button"> Checkout </button>
+                                <button className="ui button"> Checkout </button>
                             </Link>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-     )
+    )
 }
- 
+
 export default Cart

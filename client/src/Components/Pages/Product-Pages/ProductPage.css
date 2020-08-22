@@ -1,12 +1,24 @@
 .product-info-placement{
-    margin-top: 80px !important;
-    margin-bottom: 30px !important;
+    margin-top: 10rem !important;
+    
 }
 
-.product-info{
-    padding-top: 2rem !important;
+div.ui.segment{
+    box-shadow: none !important;
+    border-style: none !important;
 }
 
-.product-info h3{
-    margin-top: 1rem !important;
+div.ui.segment.info{
+    background-color: #eef4f7 !important;
 }
+
+@media (max-width: 768px) {
+    div.ui.segment.info{
+        margin-top: -4rem;
+    }
+  }
+
+.product-info-segment{
+    margin-top: 3rem;
+}
+

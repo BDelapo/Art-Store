@@ -16,11 +16,14 @@ const ProductList = () => {
         return (
                 <ProductItem 
                 className=''
-                ProductImg={item.Product} 
-                ProductName={item.first_name} 
+                ProductImg={item.product_image} 
+                ProductName={item.product_title}
+                ProductPrice={item.price}
+                ProductDescript={item.description} 
                 id={item.id} 
                 key={item.id} 
-                handleProduct={handleProduct}/>
+                handleProduct={handleProduct}
+                />
         )
     })
 
