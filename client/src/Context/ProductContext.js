@@ -4,7 +4,7 @@ import data from '../Data.json'
 export const ProductContext = createContext()
 
 export const ProductProvider = props => {
-   
+
     //Product List
     const [products, setProducts] = useState(data)
 
@@ -16,44 +16,51 @@ export const ProductProvider = props => {
 
     //functions for product page
 
-    const getProduct = (id) =>{
-        const product = products.find(product => product.id===id)
+    const getProduct = (id) => {
+        const product = products.find(product => product.id === id)
         return product
     }
-    
-    const handleProduct = (id) =>{
+
+    const handleProduct = (id) => {
         const product = getProduct(id)
         setProductInfo(product)
     }
 
     //functions for cart
 
-    const addToCart = (product) =>{
+    const addToCart = (id) => {
         const updatedCart = cartItems
-        updatedCart.push(product)
-        setCartItems(updatedCart)
+        const duplicate = updatedCart.find(item => item.id === id)
+        if (!duplicate) {
+            const addedItem = products.find(product => {
+                return product.id === id
+            })
+            updatedCart.push(addedItem)
+            setCartItems(updatedCart)
+        }
     }
 
-    const removeFromCart = (id) =>{
+
+
+    const removeFromCart = (id) => {
         const updatedCart = cartItems
         const removed = updatedCart.filter((product) => {
             return product.id !== id
         })
-       console.log(removed)
-       setCartItems(removed)
+        setCartItems(removed)
     }
-   
+
     return (
         <ProductContext.Provider value={[
-        products, 
-        setProducts, 
-        productInfo, 
-        setProductInfo,
-        cartItems,
-        setCartItems, 
-        handleProduct,
-        addToCart,
-        removeFromCart
+            products,
+            setProducts,
+            productInfo,
+            setProductInfo,
+            cartItems,
+            setCartItems,
+            handleProduct,
+            addToCart,
+            removeFromCart
         ]}
         >
             {props.children}

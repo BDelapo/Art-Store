@@ -12,6 +12,7 @@ const Cart = () => {
     const [products, setProducts, , , cartItems] = useContext(ProductContext)
 
     const cartList = cartItems.map(item => {
+        console.log(item.id)
         return <CartItems ProductImg={item.product_image} ProductName={item.product_title} ProductPrice={item.price} id={item.id} key={item.id} />
     })
 
@@ -21,12 +22,11 @@ const Cart = () => {
         }
     }
 
-
-    console.log(totalPrice())
-
-
     return (
         <div>
+            <div className='cart-banner'>
+                <h1>hello</h1>
+            </div>
             <div className='ui container cart-container'>
                 <div className='ui stackable centered grid'>
                     <div className='twelve wide column'>
