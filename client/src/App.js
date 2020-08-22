@@ -9,6 +9,7 @@ import Cart from './Components/Pages/Cart/Cart'
 import ProductPage from './Components/Pages/Product-Pages/ProductPage'
 import Checkout from './Components/Pages/Checkout/Checkout';
 import FrontPage from './Components/Pages/Front-Page/FrontPage';
+import Admin from './Components/Pages/Admin/admin'
 
 function App() {
   return (
@@ -42,6 +43,7 @@ function App() {
             <Route path='/cart' component={Cart} />
             <Route path={`/product`} component={ProductPage} />
             <Route path='/checkout' component={Checkout} />
+            <Route path ='/admin' component={Admin} />
           </Switch>
         </Router>
       </ProductProvider>
