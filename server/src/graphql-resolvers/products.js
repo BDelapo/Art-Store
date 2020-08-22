@@ -1,7 +1,13 @@
 const graphql = require('graphql');
 const Product = require('../graphql-types/product')
 const Database = require('../database/database')
-const db = new Database().db
+const database = new Database
+database.createProductTable()
+const db = database.db
+
+
+
+
 
 var getAllProducts = {
     type: graphql.GraphQLList(Product),
@@ -12,13 +18,14 @@ var getAllProducts = {
                      console.log('ERROR HAS OCCURED')
                      reject(err);
                      }
-            console.log('SUCCESS HAS OCCURED')
+            console.log('SUCCESS!  ALL PRODUCTS FETCHED')
             resolve(rows);
             });
         }
         )
     }
 }
+
 
 
 var getProduct = {
@@ -32,8 +39,8 @@ var getProduct = {
                 if(err){
                      console.log('ERROR HAS OCCURED')
                      reject(err);
-                     }
-            console.log('SUCCESS HAS OCCURED')
+                }
+            console.log('SUCCESS!  PRODUCT HAS BEEN FETCHED')
             resolve(rows);
             });
         }
@@ -44,16 +51,18 @@ var getProduct = {
 var addProduct = {
     type: Product,
     args: {
-        name: { type: new graphql.GraphQLNonNull(graphql.GraphQLString) }
+        name : {type: new graphql.GraphQLNonNull(graphql.GraphQLString)},
+        value: {type: new graphql.GraphQLNonNull(graphql.GraphQLString)}
     },
     resolve: function(source, args){
         return new Promise((resolve, reject) => {
-            db.run(`INSERT INTO Products(name) VALUES(?);`,
-            [args.name],
-            function(err, rows){
+            db.run(`INSERT INTO Products(name, value) VALUES(?,?);`, [args.name, args.value], function(err, rows){
                 if(err){
+                    console.log('ERROR HAS OCCURED')
                     reject(err)
                 }
+                console.log('SUCCESS! PRODUCT ADDED TO TABLE')
+                console.log(args.value)
                 resolve(rows);
             })
         })
