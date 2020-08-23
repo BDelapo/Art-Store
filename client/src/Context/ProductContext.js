@@ -1,4 +1,4 @@
-import React, { useState, createContext } from 'react';
+import React, { useState, createContext, useEffect } from 'react';
 import data from '../Data.json'
 
 export const ProductContext = createContext()
@@ -13,6 +13,26 @@ export const ProductProvider = props => {
 
     //items in cart
     const [cartItems, setCartItems] = useState([])
+
+
+
+
+    useEffect(()=>{
+        async function fetchData(){
+            await fetch(`http://localhost:5000/graphql`, {
+                method: 'POST',
+                headers: {'Content-Type' :'application/json'},
+                body: JSON.stringify({
+                    query: `{getAllProducts{value}}`
+                })
+            }).then((response) => response.json().then((data) => console.log(data)))
+        }
+        fetchData()
+    },[])
+
+
+
+
 
     //functions for product page
 
