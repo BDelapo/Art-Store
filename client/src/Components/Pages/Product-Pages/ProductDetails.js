@@ -18,7 +18,7 @@ const ProductDetails = ({ productInfo, addToCart }) => {
                         {productInfo.description}
                     </div>
                     <div className='product-info-segment'>
-                    <AddToCart addToCart={addToCart} product={productInfo} />
+                    <AddToCart addToCart={addToCart} productID={productInfo.id} />
                     </div>
                 </div>
             </div>
