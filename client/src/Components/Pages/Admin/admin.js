@@ -5,9 +5,12 @@ import PopUp from './testImage'
 const  Admin = () => {
 
     const [file, setFile] = useState(null)
-    const [fileName, setFileName] = useState('NONE')
+    const [fileName, setFileName] = useState(null)
+    const [price, setPrice] = useState(null)
+    const [description, setDescription] = useState(null)
+
     const [img, setImg] = useState(null)
-    const [name, setName] = useState("NONE")
+    const [name, setName] = useState(null)
 
 
 
@@ -22,17 +25,24 @@ const  Admin = () => {
 
     const textHandler = event => {
         setName(event.target.value)
-        console.log(event.target.value)
+    }
+
+    const priceHandler = event => {
+        setPrice(event.target.value)
+    }
+
+    const descriptionHandler = event => {
+        setDescription(event.target.value)
     }
 
 
 
-    async function fileUploadHandler(name) {
+    async function fileUploadHandler() {
 			await fetch(`http://localhost:5000/graphql`, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
-					query: `mutation {addProduct(name:"${fileName}", value:"${file}") {name}}`
+					query: `mutation {addProduct(productName:"${fileName}", price:"${price}", description:"${description}", image:"${file}"){price}}`
                         })
                     })
                 .then((response) => response.json().then((data)=>{console.log(data)}));
@@ -44,7 +54,7 @@ const  Admin = () => {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
-					query: `{getProduct(name:"${name}") {value}}`
+					query: `getProduct(productName:"${name}") {productName}`
                         })
                     })
                 .then((response) => response.json().then((data => setImg(data.data.getProduct[0].value))));
@@ -61,18 +71,19 @@ const  Admin = () => {
                             <table className="ui selectable celled table">
                                 <thead>
                                     <tr>
-                                     <th>Name</th>
-                                     <th>File</th>
-                                     <th>Notes</th>
-                                    </tr>
-                                    <tr>
                                      <th><input type ="file" onChange={fileSelectHandler}/></th>
-                                     <th><button onClick={fileUploadHandler}>UPLOAD</button></th>
-                                     <th>
-                                         <input type='text' onChange={textHandler}></input>
-                                         <button onClick={fileDownloadHandler}>DOWNLOAD</button>
-                                    </th>
-                                     <th> <PopUp imgsrc={img}>This is the PopUp</PopUp></th>
+                                     <th><input type="text" onChange={priceHandler}/>Price</th>
+                                     <th><input type="text" onChange={descriptionHandler}/>Description</th>
+                                     <th><button onClick={fileUploadHandler}>UPLOAD Product to database</button></th>
+
+                                    </tr>
+                                </thead>
+                            </table>
+                            <table className="ui selectable celled table">
+                                <thead>
+                                    <tr>
+                                     <th> <input type='text' onChange={textHandler}/>Product name</th>
+                                     <th> <button onClick={fileDownloadHandler}>DOWNLOAD Product from database</button></th>
                                     </tr>
                                 </thead>
                             </table>

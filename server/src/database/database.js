@@ -19,16 +19,9 @@ class Database{
     createProductTable = () => {
          const database = new Database()
          const query = `CREATE TABLE IF NOT EXISTS Products (
-                       id integer PRIMARY KEY, name text, value text)`;
+                       id integer PRIMARY KEY, product_name text, price text, description text, image text)`;
         return database.db.run(query);
    }
-
-              //To insert row in Product table for testing purposes
-    insertName = () => {
-          const database = new Database()
-          const query = `INSERT INTO Products VALUES(1,"Tyler, "test")`;
-          database.db.run(query)
-    }
 }
 
 

@@ -1,0 +1,8 @@
+List of GraphQL commands
+
+
+{
+  getProduct(name: "Tyler"){
+    name
+  }
+}

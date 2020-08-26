@@ -3,9 +3,10 @@ const graphql = require('graphql')
 const Product = new graphql.GraphQLObjectType({
     name: "Product",
     fields: {
-        id: { type: graphql.GraphQLInt},
-        name: { type: graphql.GraphQLString },
-        value: { type: graphql.GraphQLString}
+        productName: { type: graphql.GraphQLString},
+        price: { type: graphql.GraphQLString},
+        Description: { type: graphql.GraphQLString},
+        image: { type: graphql.GraphQLString}
     }
 })
 
