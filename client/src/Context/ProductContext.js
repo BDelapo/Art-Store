@@ -23,7 +23,7 @@ export const ProductProvider = props => {
                 method: 'POST',
                 headers: {'Content-Type' :'application/json'},
                 body: JSON.stringify({
-                    query: `{getAllProducts{image}}`
+                    query: `{getAllProducts{productName, price,image}}`
                 })
             }).then((response) => response.json().then((data) =>setProducts(data.data.getAllProducts)))
         }
