@@ -42,23 +42,34 @@ const  Admin = () => {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
-					query: `mutation {addProduct(productName:"${fileName}", price:"${price}", description:"${description}", image:"${file}"){price}}`
+					query: `mutation {addProduct(productName:"${fileName}", price:"${price}", description:"${description}", image:"${file}"){productName}}`
                         })
                     })
-                .then((response) => response.json().then((data)=>{console.log(data)}));
+                .then((response) => response.json().then((data)=>{console.log(data.data.getProduct)}));
                 console.log("bublewrap")
     }
 
     async function fileDownloadHandler() {
 			await fetch(`http://localhost:5000/graphql`, {
 				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
+				headers: { 'Content-Type'  :'application/json' },
 				body: JSON.stringify({
-					query: `getProduct(productName:"${name}") {productName}`
+					query: `{getProduct(productName:"omnisiurehic.png") {image}}`
                         })
                     })
-                .then((response) => response.json().then((data => setImg(data.data.getProduct[0].value))));
-	}
+                .then((response) => response.json().then((data => setImg(data.data.getProduct[0].image))));
+    }
+
+    async function removeProductHandler(){
+        await fetch(`http://localhost:5000/graphql`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                query: `mutation {removeProduct(productName:"${name}") {productName}}`
+            })
+        })
+        .then((response) => response.json().then((data => console.log(data))))
+    }
 
 
 
@@ -84,9 +95,11 @@ const  Admin = () => {
                                     <tr>
                                      <th> <input type='text' onChange={textHandler}/>Product name</th>
                                      <th> <button onClick={fileDownloadHandler}>DOWNLOAD Product from database</button></th>
+                                     <th><button onClick ={removeProductHandler}>DELETE Product from Database</button></th>
                                     </tr>
                                 </thead>
                             </table>
+                            <PopUp imgsrc ={img}/>
                         </div>
                     </div>
                 </div>
