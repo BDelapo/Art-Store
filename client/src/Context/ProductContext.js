@@ -19,15 +19,15 @@ export const ProductProvider = props => {
 
     useEffect(()=>{
         async function fetchData(){
-            return await fetch(`http://localhost:5000/graphql`, {
+             await fetch(`http://localhost:5000/graphql`, {
                 method: 'POST',
                 headers: {'Content-Type' :'application/json'},
                 body: JSON.stringify({
                     query: `{getAllProducts{image}}`
                 })
-            }).then((response) => response.json().then((data) =>setProducts(data)))
+            }).then((response) => response.json().then((data) =>setProducts(data.data.getAllProducts)))
         }
-        console.log(products)
+        fetchData()
     },[])
 
 

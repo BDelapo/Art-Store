@@ -10,29 +10,30 @@ const ProductList = () => {
     //TODO: figure out a way to make this simpler
     const [products,,,,,, handleProduct] = useContext(ProductContext)
 
+    console.log(products == null)
     console.log(products)
 
     const list = products.map(item =>{
         return (
-                <ProductItem 
+                <ProductItem
                 className=''
-                ProductImg={item.product_image} 
+                ProductImg={item.image}
                 ProductName={item.product_title}
                 ProductPrice={item.price}
-                ProductDescript={item.description} 
-                id={item.id} 
-                key={item.id} 
+                ProductDescript={item.description}
+                id={item.id}
+                key={item.id}
                 handleProduct={handleProduct}
                 />
         )
     })
 
     return (
-        
+
             <div className='ui centered grid'>
-                {list}
+                 {list}
             </div>
-        
+
      );
 }
  
