@@ -19,7 +19,7 @@ class Database{
     createProductTable = () => {
          const database = new Database()
          const query = `CREATE TABLE IF NOT EXISTS Products (
-                       id integer PRIMARY KEY, product_name text, price text, description text, image text)`;
+                       id integer PRIMARY KEY, productName text, price text, description text, image text)`;
         return database.db.run(query);
    }
 }
