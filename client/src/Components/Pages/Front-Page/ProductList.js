@@ -8,33 +8,44 @@ const ProductList = () => {
 
 
     //TODO: figure out a way to make this simpler
-    const [products,,,,,, handleProduct] = useContext(ProductContext)
+    const [products, , , , , , handleProduct] = useContext(ProductContext)
 
-    console.log(products == null)
-    console.log(products)
-
-    const list = products.map(item =>{
-        return (
-                <ProductItem
-                className=''
-                ProductImg={item.image}
-                ProductName={item.productName}
-                ProductPrice={item.price}
-                ProductDescript={item.description}
-                id={item.id}
-                key={item.id}
-                handleProduct={handleProduct}
-                />
-        )
-    })
+    const list = () => {
+        if (!products) {
+            return (
+                <div className="ui segment">
+                    <p></p>
+                    <div className="ui active dimmer">
+                        <div className="ui loader"></div>
+                    </div>
+                </div>
+            )
+        }
+        else {
+            return products.map(item => {
+                return (
+                    <ProductItem
+                        className=''
+                        ProductImg={item.image}
+                        ProductName={item.productName}
+                        ProductPrice={item.price}
+                        ProductDescript={item.description}
+                        id={item.id}
+                        key={item.id}
+                        handleProduct={handleProduct}
+                    />
+                )
+            })
+        }
+    }
 
     return (
 
-            <div className='ui centered grid'>
-                 {list}
-            </div>
+        <div className='ui centered grid'>
+            {list()}
+        </div>
 
-     );
+    );
 }
- 
+
 export default ProductList

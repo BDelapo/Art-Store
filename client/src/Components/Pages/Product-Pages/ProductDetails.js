@@ -8,7 +8,7 @@ const ProductDetails = ({ productInfo, addToCart }) => {
                 <div className='ui segment info'>
                     <div className='ui grid'>
                         <div className="eight wide column">
-                            <h2>{productInfo.product_title}</h2>
+                            <h2>{productInfo.productName}</h2>
                         </div>
                         <div className="eight wide column">
                             <h3 className='ui right aligned header'>{productInfo.price}</h3>

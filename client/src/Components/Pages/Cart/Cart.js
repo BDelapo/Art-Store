@@ -13,7 +13,7 @@ const Cart = () => {
 
     const cartList = cartItems.map(item => {
         console.log(item.id)
-        return <CartItems ProductImg={item.product_image} ProductName={item.product_title} ProductPrice={item.price} id={item.id} key={item.id} />
+        return <CartItems ProductImg={item.image} ProductName={item.productName} ProductPrice={item.price} id={item.id} key={item.id} />
     })
 
     const totalPrice = () => {

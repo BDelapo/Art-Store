@@ -15,7 +15,7 @@ const ProductPage = () => {
                         <div className='item'>
                             <div className='content'>
                                 <div className='ui segment'>
-                                    <img className='ui fluid image' src={productInfo.product_image} />
+                                    <img className='ui fluid image' src={productInfo.image} />
                                 </div>
                             </div>
                         </div>

@@ -42,6 +42,7 @@ var getProduct = {
                 }
             console.log('SUCCESS!  PRODUCT HAS BEEN FETCHED')
             resolve(rows);
+            
             });
         }
         )

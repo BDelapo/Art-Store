@@ -6,7 +6,7 @@ export const ProductContext = createContext()
 export const ProductProvider = props => {
 
     //Product List
-    const [products, setProducts] = useState(data)
+    const [products, setProducts] = useState()
 
     //Product Page
     const [productInfo, setProductInfo] = useState({})
@@ -15,23 +15,18 @@ export const ProductProvider = props => {
     const [cartItems, setCartItems] = useState([])
 
 
-
-
     useEffect(()=>{
         async function fetchData(){
              await fetch(`http://localhost:5000/graphql`, {
                 method: 'POST',
                 headers: {'Content-Type' :'application/json'},
                 body: JSON.stringify({
-                    query: `{getAllProducts{productName, price,image}}`
+                    query: `{getAllProducts{id, productName, price, description, image}}`
                 })
             }).then((response) => response.json().then((data) =>setProducts(data.data.getAllProducts)))
         }
         fetchData()
     },[])
-
-
-
 
 
     //functions for product page
