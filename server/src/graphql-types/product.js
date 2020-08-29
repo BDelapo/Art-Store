@@ -5,7 +5,7 @@ const Product = new graphql.GraphQLObjectType({
     fields: {
         id: {type: graphql.GraphQLID},
         productName: { type: graphql.GraphQLString},
-        price: { type: graphql.GraphQLString},
+        price: { type: graphql.GraphQLInt},
         description: { type: graphql.GraphQLString},
         image: { type: graphql.GraphQLString}
     }

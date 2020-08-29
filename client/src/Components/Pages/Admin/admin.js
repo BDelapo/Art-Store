@@ -25,6 +25,7 @@ const  Admin = () => {
 
     const textHandler = event => {
         setName(event.target.value)
+        console.log(name)
     }
 
     const priceHandler = event => {
@@ -54,7 +55,7 @@ const  Admin = () => {
 				method: 'POST',
 				headers: { 'Content-Type'  :'application/json' },
 				body: JSON.stringify({
-					query: `{getProduct(productName:"omnisiurehic.png") {image}}`
+					query: `{getProduct(productName:"${name}") {image}}`
                         })
                     })
                 .then((response) => response.json().then((data => setImg(data.data.getProduct[0].image))));
