@@ -15,6 +15,7 @@ const Admin = () => {
     const [name, setName] = useState(null)
 
     const [products, setProducts] = useState([])
+    const [update, setUpdate] = useState(false)
 
     useEffect(()=>{
         async function fetchData(){
@@ -27,7 +28,7 @@ const Admin = () => {
             }).then((response) => response.json().then((data) => setProducts(data.data.getAllProducts)))
         }
         fetchData()
-    },[])
+    },[update])
 
     console.log(products)
 
@@ -49,7 +50,7 @@ const Admin = () => {
                         <td><img src={item.image} alt='unavailable' /></td>
                         <td>{item.productName}</td>
                         <td>{item.price}</td>
-                        <td><button onClick={removeProductHandler}>X</button></td>
+                        <td><button onClick={() => removeProductHandler(item.productName)}>X</button></td>
                     </tr>
                 )
             })
@@ -67,11 +68,11 @@ const Admin = () => {
 
     const textHandler = event => {
         setName(event.target.value)
-        console.log(name)
     }
 
     const priceHandler = event => {
         setPrice(event.target.value)
+        console.log(price)
     }
 
     const descriptionHandler = event => {
@@ -87,7 +88,7 @@ const Admin = () => {
                 query: `mutation {addProduct(productName:"${fileName}", price:"${price}", description:"${description}", image:"${file}"){productName}}`
             })
         })
-            .then((response) => response.json().then((data) => { console.log(data.data.getProduct) }));
+            .then((response) => response.json().then(setUpdate(!update)));
         console.log("bublewrap")
     }
 
@@ -102,7 +103,7 @@ const Admin = () => {
             .then((response) => response.json().then((data => setImg(data.data.getProduct[0].image))));
     }
 
-    async function removeProductHandler() {
+    async function removeProductHandler(name) {
         await fetch(`http://localhost:5000/graphql`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -110,9 +111,8 @@ const Admin = () => {
                 query: `mutation {removeProduct(productName:"${name}") {productName}}`
             })
         })
-            .then((response) => response.json().then((data => console.log(data))))
+            .then(setUpdate(!update))
     }
-
 
 
     return (
