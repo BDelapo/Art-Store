@@ -1,7 +1,44 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import './Checkout.css'
 
 const BillingInfo = () => {
+
+
+    const [billingData, setBillingData] = useState({
+        type: '',
+        cardNumber:'',
+        cvc: '',
+    })
+
+
+
+    useEffect(() => {
+        var data = localStorage.getItem('billingInfo')
+        if(data){
+           setBillingData(JSON.parse(data))
+        }
+    },[])
+
+
+
+    useEffect(() => {
+        localStorage.setItem('billingInfo', JSON.stringify(billingData))
+    })
+
+
+
+    const  textHandler = event => {
+        if(event.target.name == "card[type]"){
+            setBillingData({...billingData, type: event.target.value})
+        }
+        else if(event.target.name == "card[number]"){
+            setBillingData({...billingData, cardNumber: event.target.value})
+        }
+        else if (event.target.name == "card[cvc]"){
+            setBillingData({...billingData, cvc: event.target.value})
+        }
+    }
+
     return (
         <form className="ui form">
             <h4 className="ui dividing header">Billing Information</h4>
@@ -10,7 +47,7 @@ const BillingInfo = () => {
 
                 {/* Doesnt work */}
                 <div className="ui selection dropdown">
-                    <input type="hidden" name="card[type]" />
+                    <input type="hidden" name="card[type]" onChange={textHandler}/>
                     <div className="default text">Type</div>
                     <i className="dropdown icon"></i>
                     <div className="menu">
@@ -32,17 +69,17 @@ const BillingInfo = () => {
             <div className="fields">
                 <div className="seven wide field">
                     <label>Card Number</label>
-                    <input type="text" name="card[number]" maxLength="16" placeholder="Card #" />
+                    <input type="text" name="card[number]" maxLength="16" placeholder="Card #" value={billingData.cardNumber || ''}onChange={textHandler} />
                 </div>
                 <div className="three wide field">
                     <label>CVC</label>
-                    <input type="text" name="card[cvc]" maxLength="3" placeholder="CVC" />
+                    <input type="text" name="card[cvc]" maxLength="3" placeholder="CVC" value={billingData.cvc || ''}onChange={textHandler}/>
                 </div>
                 <div className="six wide field">
                     <label>Expiration</label>
                     <div className="two fields">
                         <div className="field">
-                            <select className="ui fluid search dropdown" name="card[expire-month]">
+                            <select className="ui fluid search dropdown" name="card[expire-month]" >
                                 <option value="">Month</option>
                                 <option value="1">January</option>
                                 <option value="2">February</option>
