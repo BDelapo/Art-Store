@@ -33,6 +33,7 @@ export const ProductProvider = props => {
 
     const getProduct = (id) => {
         const product = products.find(product => product.id === id)
+        console.log("hola")
         return product
     }
 

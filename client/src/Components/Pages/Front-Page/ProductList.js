@@ -12,6 +12,7 @@ const ProductList = () => {
 
     const list = () => {
         if (!products) {
+            console.log(products)
             return (
                 <div className="ui segment">
                     <p></p>
@@ -23,6 +24,7 @@ const ProductList = () => {
         }
         else {
             return products.map(item => {
+                console.log("hello")
                 return (
                     <ProductItem
                         className=''
