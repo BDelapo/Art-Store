@@ -30,8 +30,6 @@ const Admin = () => {
         fetchData()
     },[update])
 
-    console.log(products)
-
     const list = () => {
         if (!products) {
             return (

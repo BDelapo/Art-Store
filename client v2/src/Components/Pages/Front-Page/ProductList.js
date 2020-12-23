@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import './ProductList.css'
 import { ProductContext } from '../../../Context/ProductContext'
 import ProductItem from './ProductItem';
+import StackGrid from "react-stack-grid"
 
 
 const ProductList = () => {
@@ -12,7 +13,6 @@ const ProductList = () => {
 
     const list = () => {
         if (!products) {
-            console.log(products)
             return (
                 <div className="ui segment">
                     <p></p>
@@ -24,10 +24,9 @@ const ProductList = () => {
         }
         else {
             return products.map(item => {
-                console.log("hello")
                 return (
                     <ProductItem
-                        className=''
+                        className='product-list'
                         ProductImg={item.image}
                         ProductName={item.productName}
                         ProductPrice={item.price}
@@ -43,9 +42,9 @@ const ProductList = () => {
 
     return (
 
-        <div className='ui centered grid'>
+        <StackGrid columnWidth={300}>
             {list()}
-        </div>
+        </StackGrid>
 
     );
 }
