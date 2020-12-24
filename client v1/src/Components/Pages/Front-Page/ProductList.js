@@ -25,7 +25,7 @@ const ProductList = () => {
             return products.map(item => {
                 return (
                     <ProductItem
-                        className=''
+                        className='product-list'
                         ProductImg={item.image}
                         ProductName={item.productName}
                         ProductPrice={item.price}
