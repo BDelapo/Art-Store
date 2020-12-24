@@ -12,9 +12,15 @@ const FrontPage = () => {
                 </div>
                 <SlideShow />
             </div >
-            <div className='ui fluid container product-list-container'>
+            {/* <div className='ui fluid container product-list-container'>
                 <div className="ui horizontal divider">Products</div>
                 <ProductList />
+            </div> */}
+            <div>
+                <div className="ui horizontal divider">Products</div>
+                <div className="">
+                    <h1>Testing</h1>
+                </div>
             </div>
         </div>
     );
