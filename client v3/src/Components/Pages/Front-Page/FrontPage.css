@@ -34,3 +34,9 @@
     font-family: Permanent Marker;
     font-weight: lighter;
 }
+
+.about-container{
+    opacity:1;
+    z-index: 1;
+    position: absolute;
+}

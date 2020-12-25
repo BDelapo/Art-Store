@@ -20,3 +20,14 @@ body{
     font-size: 2em !important;
     margin-left: -.3em !important;
 }
+
+.navi-links{
+    display: flex;
+    color: wheat !important;
+    margin-bottom: -.15em !important;
+    align-items: center;
+}
+
+.navi-links h2{
+    font-family: Permanent Marker !important;
+}

@@ -22,6 +22,16 @@ function App() {
                 <img src={lotus}  alt='Moth'/>
               </div>
             </Link>
+            <Link to='/'>
+              <div className = "item navi-links">
+                <h2>Work</h2>
+              </div>           
+            </Link>
+            <Link to='/'>
+              <div className = "item navi-links">
+                <h2>Prints</h2>
+              </div>
+            </Link>
             <div className='right menu'>
             <div className='item'>
                 <a href='https://www.facebook.com/Magali-Moth-1121660184676639/?hc_ref=ARSNDlA8XeY2SEv_y3LoYaSIWVBcyPPLtJq31T9Ex-8Ey3N_h7W-Ao1fkqa9u_ks3JQ&fref=nf&__xts__[0]=68.ARBdsrumkto_ueHtwio3N0mRdR95ITrtURdpiUPjRUq4l67QPI2hNoBPxf9Z1545vENuc7fGxGu-fFxc3thKi96W3YLnI9peq96VK1tpT5ax-MXTEIbp8YpfnSXfEgIiXIsCl1FBA4_i9kmSahL0VrRoOs8HUkK8s7wreQsDJudj3vgtDsjknvMgQnEYTYJ99dzcgpaM0SHvhtOuRjvmWNXqIRdw9NX53ZQGqAQF_XEDYVFiIQDVWSfWfIUjk7CFKnDt4w_jMfi17iftP9NVvuqiaR-I2kRmuBoZWmIXCPhpWC9qgsJ80LEhBgmdRaHkir5VoHhCUiTl_Kc3h6EJbK_aaK9njhsT8tHk_qga&__tn__=kC-R'>
