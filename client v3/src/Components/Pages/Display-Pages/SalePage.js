@@ -6,7 +6,10 @@ const SalePage = () =>{
 
     return(
         <div>
-            <ProductList />
+            <div className='ui fluid container product-list-container'>
+                <div className="ui horizontal divider">Products</div>
+                <ProductList />
+            </div>
         </div>
     )
 

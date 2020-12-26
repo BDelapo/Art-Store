@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import './ProductList.css'
 import { ProductContext } from '../../../Context/ProductContext'
 import ProductItem from './ProductItem';
+import StackGrid from "react-stack-grid"
 
 
 const ProductList = () => {
@@ -43,9 +44,10 @@ const ProductList = () => {
 
     return (
 
-        <div className='ui centered grid'>
+        
+        <StackGrid columnWidth={300}>
             {list()}
-        </div>
+        </StackGrid>
 
     );
 }

@@ -1,0 +1,9 @@
+.item-card{
+    box-shadow: none !important;
+    background-color: white !important;
+    width: 26rem !important;
+}
+
+.item-name{
+    background-color: white !important;
+}
