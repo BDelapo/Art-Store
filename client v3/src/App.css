@@ -3,7 +3,8 @@ body{
 }
 
 .navi{
-    background-color: #59253A !important;
+    background-color: #ece8ec !important;
+    /* background-color: #59253A !important; */
     /* border-bottom-style: solid !important;
     border-bottom-width: 1rem !important;
     border-bottom-color:  #895062 !important; */
@@ -11,23 +12,25 @@ body{
 }
 
 .navi-logo{
-    background-color: #895062 !important;
+    background-color: #ece8ec !important;
+    /* background-color: #895062 !important; */
     height: 100%
 }
 
 .navi-icon{
-    color: wheat !important;
+    color: #976ED7 !important;
     font-size: 2em !important;
     margin-left: -.3em !important;
 }
 
 .navi-links{
     display: flex;
-    color: wheat !important;
+    color: #976ED7 !important;
     margin-bottom: -.15em !important;
     align-items: center;
 }
 
 .navi-links h2{
-    font-family: Permanent Marker !important;
+    font-family: Darker Grotesque !important;
+    /* font-weight: lighter !important; */
 }

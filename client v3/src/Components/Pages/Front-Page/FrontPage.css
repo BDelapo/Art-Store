@@ -31,12 +31,14 @@
 .slide-logo{
     color: white;
     font-size: 6vw;
-    font-family: Permanent Marker;
-    font-weight: lighter;
+    font-family: Darker Grotesque !important;
+   
 }
 
 .about-container{
     opacity:1;
     z-index: 1;
-    position: absolute;
+    position:static;
+    margin-top: 8em !important;
+
 }
