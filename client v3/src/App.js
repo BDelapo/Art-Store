@@ -54,8 +54,6 @@ function App() {
             <Route path='/admin' component={Admin} />
             <Route path='/Prints' component={SalePage} />
           </Switch>
-
-
           {/* Footer - Need to refactor and organize soon as i get more comfortable with styled components */}
           <StyledGrid className="ui two column centered grid">
             <div className="one column centered row">
@@ -86,14 +84,16 @@ function App() {
 const StyledColumn = styled.div`
   margin: 1em 0 1em 0;
   text-align: center !important;
-  color: #976ED7 !important;
+  color: #9e85c7 !important;
+
 `
 
 const StyledGrid = styled.div`
-  margin-top: 15em !important;
+  margin-top: 10em !important;
   background-image: linear-gradient(to bottom, rgb(0, 0, 0, .75), rgb(0, 0, 0, 1)) !important;
   padding: 1.5em 0 1.5em 0 !important;
-`
+  box-shadow: 0px 0px .7rem .1rem black!important;   
+  `
 
 const StyledFooterItem = styled.div`
   justify-content: ${props => props.iconPlacement == "right" ? "flex-end" : "flex-start"} !important;

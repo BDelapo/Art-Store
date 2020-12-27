@@ -47,7 +47,7 @@ const SlideShow = () => {
 }
 
 const StyledSlideShow = styled.div `
-    width:100%;
+    width:inherit;
     height:100vh;
     bottom:-100vh;
     overflow-y: visible;

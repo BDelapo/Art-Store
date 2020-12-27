@@ -5,7 +5,7 @@ import SlideShow from './SlideShow';
 
 const FrontPage = () => {
     return (
-        <div className="container" style = {{"width": ""}}>
+        <div className="container" style={{ "marginBottom": "40em" }}>
             <div style={{ 'height': `200vh` }}>
                 <div className='banner-container'>
                     <div className='banner'>
@@ -37,6 +37,15 @@ const FrontPage = () => {
                             <div className="eight wide column">
                                 <StyledSmallTitle>Prolific</StyledSmallTitle>
                                 <StyledBoldTitle>Artist</StyledBoldTitle>
+                            </div>
+                        </div>
+                        <div className="one column centered row" style={{"marginTop":"7em"}}>
+                            <div className="eight wide column">
+                                <p style={{"textAlign":"center"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a dolor eget odio
+                                placerat ornare at eget nulla. Nulla eu est tortor. Mauris quis enim vel tortor finibus finibus. 
+                                In tincidunt tortor eu eleifend dapibus. Phasellus sagittis lectus leo, sit amet scelerisque diam 
+                                consequat at. Nullam rutrum mi ipsum, vitae interdum lacus venenatis ut. Suspendisse varius ipsum at 
+                                nunc elementum.</p>
                             </div>
                         </div>
                     </div>
