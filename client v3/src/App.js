@@ -11,13 +11,19 @@ import Checkout from './Components/Pages/Checkout/Checkout';
 import FrontPage from './Components/Pages/Front-Page/FrontPage';
 import Admin from './Components/Pages/Admin/admin'
 import SalePage from './Components/Pages/Display-Pages/SalePage'
-import Styled from "styled-components"
+import styled from "styled-components"
+import { icons } from 'react-icons/lib';
 
 function App() {
   return (
     <div className='bg'>
       <ProductProvider>
         <Router>
+
+
+          {/*Navbar - want to refacctor and organize using styled components*/}
+
+
           <div className='ui borderless top fixed large menu navi'>
             <Link to='/'>
               <div className='item navi-logo'>
@@ -48,23 +54,51 @@ function App() {
             <Route path='/admin' component={Admin} />
             <Route path='/Prints' component={SalePage} />
           </Switch>
-          <div class="ui borderless two item menu footer">
-              <div className='item'>
-                <a href='https://www.instagram.com/magalimdemers/'>
-                  <FaInstagram size='2em' style={{ color: '#976ED7', marginBottom: '-.35em' }} />
+
+
+          {/* Footer - Need to refactor and organize soon as i get more comfortable with styled components */}
+          <StyledGrid className="ui two column centered grid">
+            <div className="one column centered row">
+              <StyledColumn className="column">
+                <h3 style={{ "text-align": "center" }}>Contact</h3>
+                <h5 style={{ "text-align": "center" }}>Magmoth@moth.com</h5>
+              </StyledColumn>
+            </div>
+            <div className="four column centered row">
+              <StyledColumn className="column">
+                <a style={{ "text-align": "center" }} href='https://www.instagram.com/magalimdemers/' >
+                  <FaInstagram size='2em' style={{ color: '#976ED7', margin: '0em -22em -.35em 0em' }} />
                 </a>
-              </div>
-              <div className='item'>
-                <a href='https://www.facebook.com/Magali-Moth-1121660184676639/?hc_ref=ARSNDlA8XeY2SEv_y3LoYaSIWVBcyPPLtJq31T9Ex-8Ey3N_h7W-Ao1fkqa9u_ks3JQ&fref=nf&__xts__[0]=68.ARBdsrumkto_ueHtwio3N0mRdR95ITrtURdpiUPjRUq4l67QPI2hNoBPxf9Z1545vENuc7fGxGu-fFxc3thKi96W3YLnI9peq96VK1tpT5ax-MXTEIbp8YpfnSXfEgIiXIsCl1FBA4_i9kmSahL0VrRoOs8HUkK8s7wreQsDJudj3vgtDsjknvMgQnEYTYJ99dzcgpaM0SHvhtOuRjvmWNXqIRdw9NX53ZQGqAQF_XEDYVFiIQDVWSfWfIUjk7CFKnDt4w_jMfi17iftP9NVvuqiaR-I2kRmuBoZWmIXCPhpWC9qgsJ80LEhBgmdRaHkir5VoHhCUiTl_Kc3h6EJbK_aaK9njhsT8tHk_qga&__tn__=kC-R'>
-                  <FaFacebook size='2em' style={{ color: '#976ED7', marginBottom: '-.15em' }} />
+              </StyledColumn>
+              <StyledColumn className="column">
+                <a  href='https://www.facebook.com/Magali-Moth-1121660184676639/?hc_ref=ARSNDlA8XeY2SEv_y3LoYaSIWVBcyPPLtJq31T9Ex-8Ey3N_h7W-Ao1fkqa9u_ks3JQ&fref=nf&__xts__[0]=68.ARBdsrumkto_ueHtwio3N0mRdR95ITrtURdpiUPjRUq4l67QPI2hNoBPxf9Z1545vENuc7fGxGu-fFxc3thKi96W3YLnI9peq96VK1tpT5ax-MXTEIbp8YpfnSXfEgIiXIsCl1FBA4_i9kmSahL0VrRoOs8HUkK8s7wreQsDJudj3vgtDsjknvMgQnEYTYJ99dzcgpaM0SHvhtOuRjvmWNXqIRdw9NX53ZQGqAQF_XEDYVFiIQDVWSfWfIUjk7CFKnDt4w_jMfi17iftP9NVvuqiaR-I2kRmuBoZWmIXCPhpWC9qgsJ80LEhBgmdRaHkir5VoHhCUiTl_Kc3h6EJbK_aaK9njhsT8tHk_qga&__tn__=kC-R'>
+                  <FaFacebook size='2em' style={{ color: '#976ED7', margin: '0em 0em -.15em -22em', }} />
                 </a>
-              </div>
-          </div>
+              </StyledColumn>
+            </div>
+          </StyledGrid>
         </Router>
       </ProductProvider>
     </div>
   );
 }
 
+const StyledColumn = styled.div`
+  margin: 1em 0 1em 0;
+  text-align: center !important;
+  color: #976ED7 !important;
+`
 
-export default App;
+const StyledGrid = styled.div`
+  margin-top: 15em !important;
+  background-image: linear-gradient(to bottom, rgb(0, 0, 0, .75), rgb(0, 0, 0, 1)) !important;
+  padding: 1.5em 0 1.5em 0 !important;
+`
+
+const StyledFooterItem = styled.div`
+  justify-content: ${props => props.iconPlacement == "right" ? "flex-end" : "flex-start"} !important;
+  margin: 25px !important;
+`
+
+
+export default App
