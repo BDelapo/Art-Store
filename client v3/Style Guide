@@ -1,3 +1,19 @@
+e94c64
+f0c456
+499097
+d2d1d6
+c5bccf
+dac7bc
+232119
+786b66
+
+
+/////////
+OPTION 1
+/////////
+
+
+App.css
 
 .navi{
     /* background-color: #ece8ec !important; */
@@ -78,3 +94,21 @@
     /* color: #232119;
     color: #786b66; */
 }
+
+
+App.js
+
+const StyledColumn = styled.div`
+  margin: 1em 0 1em 0;
+  text-align: center !important;
+  /* color: #9e85c7 !important; */
+  /*Style Guide*/
+  /* color: #e94c64;
+  color: #f0c456;
+  color: #499097; */
+  color: #d2d1d6;
+  /* color: #c5bccf;
+  color: #dac7bc;
+  color: #232119;
+  color: #786b66; */
+`
