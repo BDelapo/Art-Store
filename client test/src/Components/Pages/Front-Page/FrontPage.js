@@ -5,9 +5,9 @@ import SlideShow from './SlideShow';
 
 const FrontPage = () => {
     return (
-        <div className="container" style={{ "marginBottom": "40em" }}>
-            <div style={{ 'height': `200vh` }}>
-                <div className='banner-container'>
+        <div className="container" style={{ "marginBottom": "5em", height: '300vh'}}>
+            <div style={{ 'height': `1089px` }}>
+                <div className='banner-container' style={{position: 'relative', height: '100%'}}>
                     <div className='banner'>
                         {/* <h1 className='slide-logo'>Magali M. Demers</h1> */}
                     </div>
