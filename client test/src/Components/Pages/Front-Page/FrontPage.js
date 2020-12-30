@@ -5,8 +5,8 @@ import SlideShow from './SlideShow';
 
 const FrontPage = () => {
     return (
-        <div className="container" style={{ "marginBottom": "5em", height: '300vh'}}>
-            <div style={{ 'height': `1089px` }}>
+        <div className="container" style={{ "marginBottom": "5em", height: '200vh', overflow: 'hidden', left: '0'}}>
+            <div style={{ 'height': '100vh' }}>
                 <div className='banner-container' style={{position: 'relative', height: '100%'}}>
                     <div className='banner'>
                         {/* <h1 className='slide-logo'>Magali M. Demers</h1> */}
@@ -14,7 +14,7 @@ const FrontPage = () => {
                     <SlideShow />
                 </div >
                 <div>
-                    <div className="ui one column centered grid about-container">
+                    <div className="ui one column centered grid about-container" style ={{bottom: '0', position: 'absolute', marginBottom: '10em'}}>
                         <div className="centered row">
                             <div className="eight wide column">
                                 <StyledSmallTitle>Experienced</StyledSmallTitle>

@@ -16,15 +16,12 @@ import { icons } from 'react-icons/lib';
 
 function App() {
   return (
-    <div className='bg' style ={{width: '100%'}}>
+    <div className='bg' style ={{width: '100%', border: '', borderColor: 'red', height: '100%'}}>
       <ProductProvider>
         <Router>
 
 
-          {/*Navbar - want to refacctor and organize using styled components*/}
-
-
-          <div className='ui borderless top fixed large menu navi' style={{width : '100% !important'}}>
+          <StyledNav className='ui borderless top fixed large menu navi'>
             <Link to='/'>
               <div className='item navi-logo navi-links'>
                 <img src={lotus} alt='Moth' />
@@ -48,7 +45,7 @@ function App() {
                 <i className="cart arrow down icon navi-icon"></i>
               </Link>
             </div>
-          </div>
+          </StyledNav>
           <Switch>
             <Route exact path='/' component={FrontPage} />
             <Route path='/cart' component={Cart} />
@@ -82,11 +79,18 @@ function App() {
               </StyledColumn>
             </div>
           </StyledGrid>
+
         </Router>
       </ProductProvider>
     </div>
   );
 }
+
+
+const StyledNav = styled.div`
+  width: 100vw !important;
+  right: 0 !important;
+`
 
 
 const StyledColumn = styled.div`
