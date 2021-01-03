@@ -35,23 +35,23 @@ const SlideShow = () => {
 
 
   const transitions = useTransition(slideImages[slideIndex], item => item.key, {
-    from: { opacity: 0, transform: 'scale(1.1)' },
-    enter: { opacity: 1, transform: 'scale(1.1)' },
-    leave: { opacity: 0, transform: 'scale(1.1)' },
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
   })
 
   return transitions.map(({ item, props, key }) =>
-    <animated.div style={{ ...props }}>
+    <animated.div style={{ ...props, position: 'absolute', height: '100%', right: '0', left: '0'}}>
       <StyledSlide
         key={key}
         image={item.item}
       >
       </StyledSlide>
-      <StyledSlideReflection
+      {/* <StyledSlideReflection
         key={key}
         image={item.item}
       >
-      </StyledSlideReflection>
+      </StyledSlideReflection> */}
     </animated.div>)
 
 }
@@ -59,21 +59,26 @@ const SlideShow = () => {
 const StyledSlide = styled.div`
   background-image: url(${props => props.image});
   background-size: cover;
-  height: 80vh;
-  position: absolute;
+  height: 100%;
   right: 0;
   left: 0;
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to top, rgba(0,0,0,0), rgba(0,0,0,1));
 `
 const StyledSlideReflection = styled.div`
   background-image: url(${props => props.image});
   background-size: cover;
-  height: 80vh;
-  position: absolute;
+  height: 50%;
   right: 0;
   left: 0;
-  bottom: -159.8vh;
+  position: absolute;
+  top:79.5vh;
   transform:scaleY(-1);
   mask-image: linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,1));
+  width: 100%;
+  overflow: hidden;
 `
 
 

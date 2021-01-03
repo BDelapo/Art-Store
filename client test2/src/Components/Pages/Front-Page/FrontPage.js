@@ -5,15 +5,11 @@ import SlideShow from './SlideShow';
 
 const FrontPage = () => {
     return (
-        <div style={{}}>
-            <div style={{}}>
-                <div className='banner-container' style={{ position: 'relative', height: '100%' }}>
-                    <div className='banner'>
-                        {/* <h1 className='slide-logo'>Magali M. Demers</h1> */}
-                    </div>
-                    <SlideShow /> 
+        <div style={{display: 'inherit', width: '100%', height: '200vh'}}>
+                <div className='banner-container' style={{height: '100%', overflow: 'visible', marginTop: '0', marginBottom: '10rem'}}>
+                    <SlideShow />
                 </div >
-                <div className="ui one column centered grid about-container" style={{ width: '100%', border: '', margin: '0'}}>
+                <div className="ui one column centered grid about-container" style={{ width: '100%', border: '', margin: '0', position: 'absolute', bottom: '32rem'}}>
                     <div className="centered row">
                         <div className="eight wide column">
                             <StyledSmallTitle>Experienced</StyledSmallTitle>
@@ -38,7 +34,7 @@ const FrontPage = () => {
                             <StyledBoldTitle>Artist</StyledBoldTitle>
                         </div>
                     </div>
-                    <div className="one column centered row" style={{ "marginTop": "7em" }}>
+                    <div className="one column centered row" style={{ "marginTop": "7em", width : '100%' }}>
                         <div className="eight wide column">
                             <p style={{ "textAlign": "center" }}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer a dolor eget odio
                             placerat ornare at eget nulla. Nulla eu est tortor. Mauris quis enim vel tortor finibus finibus.
@@ -48,7 +44,6 @@ const FrontPage = () => {
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
 
     );

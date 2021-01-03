@@ -16,10 +16,9 @@ import { icons } from 'react-icons/lib';
 
 function App() {
   return (
-    <div className='bg' style ={{width: '100%', border: '', borderColor: 'red', height: '100%'}}>
+    <div className='bg' style ={{width: '100%', border: '', borderColor: 'red', height: '100%', display : 'inherit', position: '', height: '100%'}}>
       <ProductProvider>
         <Router>
-
 
           <StyledNav className='ui borderless top fixed large menu navi'>
             <Link to='/'>
@@ -30,7 +29,7 @@ function App() {
             <div className="item navi-links">
               <h1>Magali M. Demers</h1>
             </div>
-            <div className='right menu'>
+            <StyledNavRight className='right menu'>
               <Link to='/'>
                 <div className="item navi-links">
                   <h2>Work</h2>
@@ -44,7 +43,7 @@ function App() {
               <Link to='/cart' className='item'>
                 <i className="cart arrow down icon navi-icon"></i>
               </Link>
-            </div>
+            </StyledNavRight>
           </StyledNav>
           <Switch>
             <Route exact path='/' component={FrontPage} />
@@ -90,6 +89,11 @@ function App() {
 const StyledNav = styled.div`
   width: 100vw !important;
   right: 0 !important;
+  left: 0 !important;
+`
+
+const StyledNavRight = styled.div`
+  margin: 0 !important;
 `
 
 
@@ -116,6 +120,7 @@ const StyledGrid = styled.div`
   width: 100% !important;
   position: absolute;
   margin: 0 !important;
+  bottom: 0;
   `
 
 const StyledFooterItem = styled.div`
