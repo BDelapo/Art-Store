@@ -1,14 +1,21 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
+import lotus from '../icons8-lotus-100.png'
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 const NavBar = () => {
 
     const [toggle, setToggle] = useState(false)
 
     const navLinks = () => (
-            <StyledNavList toggle={toggle}>
+        <StyledNavList toggle={toggle}>
+            <Link to=''>
                 <StyledNavLinks>Work</StyledNavLinks>
+            </Link>
+            <Link to='/Prints'>
                 <StyledNavLinks>Prints</StyledNavLinks>
-            </StyledNavList>
+            </Link>
+        </StyledNavList>
     )
 
     console.log(toggle)
@@ -16,21 +23,34 @@ const NavBar = () => {
     return (
         <div>
             <StyledNav>
-                <div>Mag</div>
-                <div style={{width: '100%'}}>
+                <StyledNavLogo>
+                    <Link to='/' style={{height: '100%', marginTop: '.1rem'}}>
+                        <img src={lotus} alt='Moth' style={{ width: '2.4rem', height: '100%'}} />
+                    </Link>
+                    <div>
+                        <h3 style={{ padding: '0rem 0 .2rem .5rem', fontFamily: 'Darker Grotesque', fontSize: '2rem'}}>Magali M. Demers</h3>
+                    </div>
+                </StyledNavLogo>
+                <StyledNavContainer>
                     <StyledNavButton onClick={() => setToggle(!toggle)}>Hello</StyledNavButton>
-                        { navLinks() }
-                </div>
+                    {navLinks()}
+                </StyledNavContainer>
             </StyledNav>
         </div>
     )
 
 }
 
+const StyledNavLogo = styled.div`
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    `
+
 const StyledNav = styled.nav`
   min-height: 3%;
   height: auto;
-  position: absolute;
+  position: fixed;
   width: 100vw !important;
   right: 0 !important;
   left: 0 !important;
@@ -39,12 +59,20 @@ const StyledNav = styled.nav`
   align-items: center;
   z-index: 1;
   background-color: white;
-  padding: 2rem;
+  box-shadow: 0px 0px .5rem .1rem black!important; 
+  padding: .75rem .4rem .5rem .9rem;
+  font-family: Darker Grotesque !important;
+  font-size: 1.9rem;
   @media (max-width: 500px){
     flex-direction: column;
     align-items: flex-start;
   }
+`
 
+const StyledNavContainer = styled.div`
+    @media(max-width: 500px){
+        width: 100%;
+    }
 `
 
 const StyledNavList = styled.ul`
@@ -53,26 +81,28 @@ const StyledNavList = styled.ul`
   padding: 0;
   @media (max-width: 500px){
     width: 100%;
-    border-style: solid;
     flex-direction: column;
     display: ${props => props.toggle ? `flex` : `none`};
+    margin: 0rem 0rem 0rem 0rem;
+    justify-content: flex-end;
   }
 `
 
 const StyledNavLinks = styled.li`
   list-style: none;
   padding: .5rem;
-  margin: .25 rem;
+  margin: .0rem 2rem 0rem 0rem;
   display: block;
   @media (max-width: 500px){
       text-align: center;
+      padding: 1rem;
   }
 `
 
 const StyledNavButton = styled.button`
   position: absolute;
   z-index: 100;
-  top: 1.3rem;
+  top: .5rem;
   right: .5rem;
   display: none;
   padding: .5rem;
