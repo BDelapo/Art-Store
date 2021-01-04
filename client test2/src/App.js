@@ -13,6 +13,7 @@ import Admin from './Components/Pages/Admin/admin'
 import SalePage from './Components/Pages/Display-Pages/SalePage'
 import styled from "styled-components"
 import { icons } from 'react-icons/lib';
+import NavBar from './Components/Pages/Front-Page/NavBar';
 
 function App() {
   return (
@@ -20,7 +21,9 @@ function App() {
       <ProductProvider>
         <Router>
 
-          <StyledNav className='ui borderless top fixed large menu navi'>
+        <NavBar />
+
+          {/* <StyledNav className='ui borderless top fixed large menu navi'>
             <Link to='/'>
               <div className='item navi-logo navi-links'>
                 <img src={lotus} alt='Moth' />
@@ -44,7 +47,7 @@ function App() {
                 <i className="cart arrow down icon navi-icon"></i>
               </Link>
             </StyledNavRight>
-          </StyledNav>
+          </StyledNav> */}
           <Switch>
             <Route exact path='/' component={FrontPage} />
             <Route path='/cart' component={Cart} />
@@ -86,10 +89,55 @@ function App() {
 }
 
 
-const StyledNav = styled.div`
+const StyledNav = styled.nav`
+  min-height: 3%;
+  height: auto;
+  position: absolute;
   width: 100vw !important;
   right: 0 !important;
   left: 0 !important;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+  background-color: white;
+  padding: 2rem;
+  @media (max-width: 500px){
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+`
+
+const StyledNavList = styled.ul`
+  display: flex;
+  margin: 0;
+  padding: 0;
+  @media (max-width: 500px){
+    flex-direction: column;
+  }
+`
+
+const StyledNavLinks = styled.li`
+  list-style: none;
+  padding: .5rem;
+  margin: .25 rem;
+  display: block;
+  @media (max-width: 500px){
+   // display: none;
+  }
+`
+
+const StyledNavButton = styled.a`
+  position: absolute;
+  top: 1.3rem;
+  right: .5rem;
+  display: none;
+  padding: .5rem;
+  margin: .25 rem;
+  @media (max-width: 500px){
+    display: flex;
+  }
 `
 
 const StyledNavRight = styled.div`

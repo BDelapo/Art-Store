@@ -9,7 +9,7 @@ const FrontPage = () => {
                 <div className='banner-container' style={{height: '100%', overflow: 'visible', marginTop: '0', marginBottom: '10rem'}}>
                     <SlideShow />
                 </div >
-                <div className="ui one column centered grid about-container" style={{ width: '100%', border: '', margin: '0', position: 'absolute', bottom: '32rem'}}>
+                {/* <div className="ui one column centered grid about-container" style={{ width: '100%', border: '', margin: '0', position: 'absolute', bottom: '32rem'}}>
                     <div className="centered row">
                         <div className="eight wide column">
                             <StyledSmallTitle>Experienced</StyledSmallTitle>
@@ -43,7 +43,7 @@ const FrontPage = () => {
                                 nunc elementum.</p>
                         </div>
                     </div>
-                </div>
+                </div> */}
         </div>
 
     );
