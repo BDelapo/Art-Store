@@ -32,7 +32,7 @@ const NavBar = () => {
                     </div>
                 </StyledNavLogo>
                 <StyledNavContainer>
-                    <StyledNavButton onClick={() => setToggle(!toggle)}>Hello</StyledNavButton>
+                    <StyledNavButton onClick={() => setToggle(!toggle)}><i class="bars icon"></i></StyledNavButton>
                     {navLinks()}
                 </StyledNavContainer>
             </StyledNav>
@@ -45,6 +45,7 @@ const StyledNavLogo = styled.div`
         display: flex;
         justify-content: center;
         align-items: center;
+        padding-bottom: 0rem;
     `
 
 const StyledNav = styled.nav`
@@ -57,7 +58,7 @@ const StyledNav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  z-index: 1;
+  z-index: 10;
   background-color: white;
   box-shadow: 0px 0px .5rem .1rem black!important; 
   padding: .75rem .4rem .5rem .9rem;
@@ -102,12 +103,14 @@ const StyledNavLinks = styled.li`
 const StyledNavButton = styled.button`
   position: absolute;
   z-index: 100;
-  top: .5rem;
+  top: .35rem;
   right: .5rem;
   display: none;
   padding: .5rem;
   margin: .25 rem;
   cursor: pointer;
+  background-color: transparent;
+  border-style: none;
   @media (max-width: 500px){
     display: flex;
   }
