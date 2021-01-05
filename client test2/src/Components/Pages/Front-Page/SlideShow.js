@@ -47,11 +47,6 @@ const SlideShow = () => {
         image={item.item}
       >
       </StyledSlide>
-      {/* <StyledSlideReflection
-        key={key}
-        image={item.item}
-      >
-      </StyledSlideReflection> */}
     </animated.div>)
 
 }
