@@ -13,7 +13,7 @@ const NavBar = () => {
 
     const navLinks = () => {
         return (
-            <StyledNavList toggle={toggle}>
+            <StyledNavList style={{...propsTopNavContent}}>
                 <Link to=''>
                     <StyledNavLinks>Work</StyledNavLinks>
                 </Link>
@@ -31,6 +31,15 @@ const NavBar = () => {
      to: {height: toggle && foldable ? '20h' : '5vh', flexDirection: foldable ?'column' : 'row',  alignItems: 'flex-start' }
     })
 
+
+    const propsTopNavContent = useSpring({
+        to: {
+          flexDirection: 'column',
+          margin: toggle||!foldable ? '0 0 0 0' : '-10rem 0 0 0',
+          opacity: toggle&&foldable ? 1 : 0,
+          display: toggle||!foldable ? 'flex' : 'none'
+        }
+      })
 
     return (
 
@@ -89,16 +98,16 @@ const StyledNavContainer = styled.div`
     }
 `
 
-const StyledNavList = styled.ul`
+const StyledNavList = styled(animated.ul)`
   display: flex;
   margin: 0;
   padding: 0;
   @media (max-width: 500px){
-    width: 100%;
+    /* width: 100%;
     flex-direction: column;
     display: ${props => props.toggle ? `flex` : `none`};
     margin: 0rem 0rem 0rem 0rem;
-    justify-content: flex-end;
+    justify-content: flex-end; */
   }
 `
 
