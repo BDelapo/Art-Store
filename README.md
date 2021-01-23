@@ -10,3 +10,6 @@ Mobile View
 ![image](https://github.com/BDelapo/Art-Store/blob/master/README-DEMO-GIFS/mag-landing-page2.gif)
 
 
+
+-lotus icon in navbar originates from Icons8 at https://icons8.com/icons/set/lotus-flower
+
