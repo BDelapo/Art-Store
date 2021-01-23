@@ -2,3 +2,11 @@ A Portfolio website for a local Montreal artist with e-commerce functionality.  
 
 
 ![image](https://github.com/BDelapo/Art-Store/blob/master/README-DEMO-GIFS/mag-landing-page1.gif)
+
+
+
+Mobile View
+
+![image](https://github.com/BDelapo/Art-Store/blob/master/README-DEMO-GIFS/mag-landing-page2.gif)
+
+
