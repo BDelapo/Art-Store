@@ -12,4 +12,7 @@ Mobile View
 
 
 -lotus icon in navbar originates from Icons8 at https://icons8.com/icons/set/lotus-flower
+-wheat background pattern from Toptal Subtle Patterns
+-sky background image from Oleg Magni
+-sky background image 2 from https://unsplash.com/photos/o8SzLhKUEBU
 
